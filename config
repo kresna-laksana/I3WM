@@ -132,13 +132,13 @@ bindsym $mod+Ctrl+plus		exec --no-startup-id brightnessctl s +5%
 
 bindsym $mod+grave			workspace back_and_forth
 bindsym $mod+Shift+grave	move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+Tabs			workspace back_and_forth
-bindsym $mod+Shift+Tabs		move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Tab			focus next
+bindsym $mod+Shift+Tab		focus prev
 
 bindsym $alt+grave			workspace back_and_forth
 bindsym $alt+Shift+grave	move container to workspace back_and_forth; workspace back_and_forth
-bindsym $alt+Tabs			workspace back_and_forth
-bindsym $alt+Shift+Tabs		move container to workspace back_and_forth; workspace back_and_forth
+bindsym $alt+Tab			focus next
+bindsym $alt+Shift+Tab		focus prev
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
