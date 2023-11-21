@@ -94,6 +94,7 @@ exec_always --no-startup-id autotiling --limit 2
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id pkill -9 emacs; emacs --daemon
+exec_always --no-startup-id pkill -9 dunst; dunst -config $HOME/.i3/scripts/dunstrc
 exec_always --no-startup-id pkill -9 picom; picom --config $HOME/.i3/scripts/picom.conf
 exec_always --no-startup-id pkill -9 xautocfg; xautocfg -c $HOME/.i3/scripts/xautocfg.cfg
 exec_always --no-startup-id pkill -9 redshift; redshift -x; pkill -9 redshift; redshift -c $HOME/.i3/scripts/redshift.conf
