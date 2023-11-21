@@ -105,9 +105,9 @@ exec_always --no-startup-id xset b off c off dpms 300 600 900 m default s noblan
 bindsym $alt+F4	kill
 bindsym $mod+c	kill
 
-bindsym $mod+Return			exec --no-startup-id prime-run $term --class kitty-term
-bindsym $mod+Shift+Return	exec --no-startup-id prime-run $term --class kitty-float
-bindsym $mod+Ctrl+Return	exec --no-startup-id prime-run $term --class kitty-style
+bindsym $mod+Return			exec --no-startup-id $term --class kitty-term
+bindsym $mod+Shift+Return	exec --no-startup-id $term --class kitty-float
+bindsym $mod+Ctrl+Return	exec --no-startup-id $term --class kitty-style
 
 bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'IosevkaNF-HeavyOblique-24' -h 43 -p 'RUN >>> '"
 
@@ -186,13 +186,13 @@ bindsym F11 fullscreen toggle
 bindsym $mod+e						exec --no-startup-id emacsclient -c -a emacs
 bindsym $mod+b 						exec --no-startup-id firefox
 bindsym $mod+Shift+b				exec --no-startup-id firefox --private-window
-bindsym $mod+f						exec --no-startup-id prime-run $term --class kitty-ranger ranger
+bindsym $mod+f						exec --no-startup-id $term --class kitty-ranger ranger
 bindsym $mod+Shift+f				exec --no-startup-id pcmanfm-qt
-bindsym $mod+m						exec --no-startup-id prime-run $term --class kitty-music ncmpcpp
-bindsym $mod+Shift+m				exec --no-startup-id prime-run $term --class kitty-video ranger $HOME/Videos/
-bindsym $mod+Ctrl+m					exec --no-startup-id prime-run $term --class kitty-mixer pulsemixer
-bindsym $mod+slash					exec --no-startup-id prime-run $term --class kitty-htop htop
-bindsym $mod+Shift+slash			exec --no-startup-id prime-run $term --class kitty-nvtop nvtop
+bindsym $mod+m						exec --no-startup-id $term --class kitty-music ncmpcpp
+bindsym $mod+Shift+m				exec --no-startup-id $term --class kitty-video ranger $HOME/Videos/
+bindsym $mod+Ctrl+m					exec --no-startup-id $term --class kitty-mixer pulsemixer
+bindsym $mod+slash					exec --no-startup-id $term --class kitty-htop htop
+bindsym $mod+Shift+slash			exec --no-startup-id $term --class kitty-nvtop nvtop
 bindsym Print						exec --no-startup-id flameshot screen
 bindsym $mod+Print --release		exec --no-startup-id flameshot full
 bindsym $mod+Shift+Print --release	exec --no-startup-id i3-scrot -w
