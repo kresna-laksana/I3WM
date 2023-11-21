@@ -86,15 +86,18 @@ smart_gaps						off
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --search-paths $HOME/.config/autostart --wait
 exec --no-startup-id dirmngr --daemon
-exec --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/keyboard-wallpaper-darker.png
-exec --no-startup-id mpd --systemd $HOME/.config/mpd/mpd.conf
+exec --no-startup-id feh --bg-fill $HOME/.i3/wallpapers/keyboard-wallpaper-darker.png
+exec --no-startup-id mpd --systemd $HOME/.i3/scripts/mpd/mpd.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id poweralertd
 exec_always --no-startup-id autotiling --limit 2
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id pkill -9 emacs; emacs --daemon
+exec_always --no-startup-id pkill -9 xautocfg; xautocfg -c $HOME/.i3/scripts/xautocfg.cfg
+exec_always --no-startup-id pkill -9 redshift; redshift -x; pkill -9 redshift; redshift -c $HOME/.i3/scripts/redshift.conf
 exec_always --no-startup-id xset b off c off dpms 300 600 900 m default s noblank s noexpose s off
+exec_always --no-startup-id pkill -9 xidlehook; xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 "betterlockscreen --lock dim --time-format '%I:%M %p --show-layout'" ""
 
 ### Keybindings ###
 bindsym $alt+F4	kill
