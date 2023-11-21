@@ -89,8 +89,6 @@ exec --no-startup-id dirmngr --daemon
 exec --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/keyboard-wallpaper-darker.png
 exec --no-startup-id mpd --systemd $HOME/.config/mpd/mpd.conf
 exec --no-startup-id nm-applet
-exec --no-startup-id pcmanfm --daemon-mode
-exec --no-startup-id pcmanfm-qt --daemon-mode
 exec --no-startup-id poweralertd
 exec_always --no-startup-id autotiling --limit 2
 exec_always --no-startup-id ff-theme-util
