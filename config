@@ -86,20 +86,20 @@ smart_gaps						off
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --search-paths $HOME/.config/autostart --wait
 exec --no-startup-id dirmngr --daemon
+exec --no-startup-id dunst -config $HOME/.i3/scripts/dunstrc
 exec --no-startup-id feh --bg-fill $HOME/.i3/wallpapers/keyboard-wallpaper-darker.png
 exec --no-startup-id mpd --systemd $HOME/.i3/scripts/mpd/mpd.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id poweralertd
+exec --no-startup-id emacs --daemon
+exec --no-startup-id picom --config $HOME/.i3/scripts/picom.conf
+exec --no-startup-id redshift -c $HOME/.i3/scripts/redshift.conf
+exec --no-startup-id xautocfg -c $HOME/.i3/scripts/xautocfg.cfg
+exec --no-startup-id xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 "betterlockscreen --lock dim --time-format '%I:%M %p --show-layout'" ""
 exec_always --no-startup-id autotiling --limit 2
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec_always --no-startup-id pkill -9 emacs; emacs --daemon
-exec_always --no-startup-id pkill -9 dunst; dunst -config $HOME/.i3/scripts/dunstrc
-exec_always --no-startup-id pkill -9 picom; picom --config $HOME/.i3/scripts/picom.conf
-exec_always --no-startup-id pkill -9 xautocfg; xautocfg -c $HOME/.i3/scripts/xautocfg.cfg
-exec_always --no-startup-id pkill -9 redshift; redshift -x; pkill -9 redshift; redshift -c $HOME/.i3/scripts/redshift.conf
 exec_always --no-startup-id xset b off c off dpms 300 600 900 m default s noblank s noexpose s off
-exec_always --no-startup-id pkill -9 xidlehook; xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 "betterlockscreen --lock dim --time-format '%I:%M %p --show-layout'" ""
 
 ### Keybindings ###
 bindsym $alt+F4	kill
@@ -191,6 +191,8 @@ bindsym $mod+Shift+f				exec --no-startup-id pcmanfm-qt
 bindsym $mod+m						exec --no-startup-id prime-run $term --class kitty-music ncmpcpp
 bindsym $mod+Shift+m				exec --no-startup-id prime-run $term --class kitty-video ranger $HOME/Videos/
 bindsym $mod+Ctrl+m					exec --no-startup-id prime-run $term --class kitty-mixer pulsemixer
+bindsym $mod+slash					exec --no-startup-id prime-run $term --class kitty-htop htop
+bindsym $mod+Shift+slash			exec --no-startup-id prime-run $term --class kitty-nvtop nvtop
 bindsym Print						exec --no-startup-id flameshot screen
 bindsym $mod+Print --release		exec --no-startup-id flameshot full
 bindsym $mod+Shift+Print --release	exec --no-startup-id i3-scrot -w
@@ -261,6 +263,8 @@ assign [class="GitHub Desktop"] $ws5
 assign [class="kitty-video"] $ws8
 assign [class="mpv"] $ws8
 assign [class="discord"] $ws9
+assign [class="kitty-htop"] $ws10
+assign [class="kitty-nvtop"] $ws10
 
 # Open specific applications with specific rules
 for_window [all] border none
