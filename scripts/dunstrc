@@ -17,29 +17,29 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = keyboard
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (0, 500)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 300
+    height = 1000
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    offset = 25x67
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
 
     # Maximum number of notification (0 means no limit)
-    notification_limit = 20
+    notification_limit = 5
 
     ### Progress bar ###
 
@@ -55,13 +55,13 @@
     progress_bar_frame_width = 1
 
     # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
+    progress_bar_min_width = 250
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
+    progress_bar_max_width = 500
 
     # Corner radius for the progress bar. 0 disables rounded corners.
-    progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 5
 
     # Corner radius for the icon image.
     icon_corner_radius = 0
@@ -78,30 +78,29 @@
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    # If gap_size is greater than 0, this setting will be ignored.
-    separator_height = 2
+    separator_height = 5
 
     # Padding between text and separator.
-    padding = 8
+    padding = 25
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 25
 
     # Padding between text and icon.
-    text_icon_padding = 0
+    text_icon_padding = 25
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 0
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#282a36"
 
     # Size of gap to display between notifications - requires a compositor.
     # If value is greater than 0, separator_height will be ignored and a border
     # of size frame_width will be drawn around each notification instead.
     # Click events on gaps do not currently propagate to applications below.
-    gap_size = 0
+    gap_size = 5
 
     # Define a color for the separator.
     # possible values are:
@@ -119,15 +118,15 @@
     # Set to 0 to disable.
     # A client can set the 'transient' hint to bypass this. See the rules
     # section for how to disable this if necessary
-    # idle_threshold = 120
+    idle_threshold = 0
 
     ### Text ###
 
-    font = Monospace 8
+    font = Iosevka Nerd Font Propo Heavy 12
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
-    line_height = 0
+    line_height = 5
 
     # Possible values are:
     # full: Allow a small subset of html markup in notifications:
@@ -137,7 +136,7 @@
     #        <u>underline</u>
     #
     #        For a complete reference see
-    #        <https://docs.gtk.org/Pango/pango_markup.html>.
+    #        <https://developer.gnome.org/pango/stable/pango-Markup.html>.
     #
     # strip: This setting is provided for compatibility with some broken
     #        clients that send markup even though it's not enabled on the
@@ -163,7 +162,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b> %p\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -176,11 +175,11 @@
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = -1
 
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".
-    ellipsize = middle
+    ellipsize = end
 
     # Ignore newlines '\n' in notifications.
     ignore_newline = no
@@ -201,22 +200,22 @@
     enable_recursive_icon_lookup = true
 
     # Set icon theme (only used for recursive icon lookup)
-    icon_theme = Adwaita
+    icon_theme = "Tela-manjaro-dark, Qogir-manjaro-dark"
     # You can also set multiple icon themes, with the leftmost one being used first.
     # icon_theme = "Adwaita, breeze"
 
-    # Align icons left/right/top/off
+    # Align icons left/right/off
     icon_position = left
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 32
+    min_icon_size = 48
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 128
+    max_icon_size = 96
 
-    # Paths to default icons (only neccesary when not using recursive icon lookup)
+    # Paths to default icons.
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
@@ -226,7 +225,7 @@
     sticky_history = yes
 
     # Maximum amount of notifications kept in history
-    history_length = 20
+    history_length = 25
 
     ### Misc/Advanced ###
 
@@ -234,7 +233,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/xdg-open
+    browser = /usr/bin/firefox -new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -256,7 +255,7 @@
     # Useful to enforce the timeout set by dunst configuration. Without this
     # parameter, an application may close the notification sent before the
     # user defined timeout.
-    ignore_dbusclose = false
+    ignore_dbusclose = true
 
     ### Wayland ###
     # These settings are Wayland-specific. They have no effect when using X11
@@ -313,26 +312,32 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
-    timeout = 10
+    msg_urgency = low
+    background = "#282a36"
+    foreground = "#6272a4"
+    timeout = 1
+    fullscreen = delay
     # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    #new_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
-    timeout = 10
+    msg_urgency = normal
+    background = "#282a36"
+    foreground = "#bd93f9"
+    timeout = 5
+    fullscreen = pushback
     # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    #new_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
+    msg_urgency = critical
+    background = "#ff5555"
+    foreground = "#282a36"
+    frame_color = "#ff5555"
     timeout = 0
+    fullscreen = show
     # Icon for notifications with critical urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    #new_icon = /path/to/icon
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -360,14 +365,12 @@
 #    set_category
 #    timeout
 #    urgency
-#    icon_position
 #    skip_display
 #    history_ignore
 #    action_name
 #    word_wrap
 #    ellipsize
 #    alignment
-#    hide_text
 #
 # Shell-like globbing will get expanded.
 #
@@ -455,5 +458,114 @@
 #[stack-volumes]
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
-#
+
+[fish_shell]
+    appname = "fish"
+    timeout = 5
+    #new_icon = /usr/share/icons/custom_icons/fish_shell/icons8-fish-stickers-96.png
+    skip_display = no
+    history_ignore = no
+
+[betterlockscreen]
+    appname = "Lockscreen"
+    new_icon = /usr/share/icons/custom_icons/lockscreens/icons8-lock-96.png
+    skip_display = no
+    history_ignore = yes
+
+[poweralertd_bat_power]
+    appname = "poweralertd"
+    body = "Power supply offline"
+    summary = "Power status: AC (line power)"
+    background = "#ff5555"
+    foreground = "#282a36"
+    frame_color = "#ff5555"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/powermanager/icons8-charging-battery-gradient-96.png
+    timeout = 0
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
+[poweralertd_ac_power]
+    appname = "poweralertd"
+    body = "Power supply online"
+    summary = "Power status: AC (line power)"
+    background = "#50fa7b"
+    foreground = "#282a36"
+    frame_color = "#50fa7b"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/powermanager/icons8-charging-battery-gradient-96.png
+    timeout = 5
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
+[poweralertd_battery_discharging]
+    appname = "poweralertd"
+    body = "Battery discharging*"
+    summary = "Power status: DELL 1VX1H98"
+    background = "#ff5555"
+    foreground = "#282a36"
+    frame_color = "#ff5555"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/powermanager/icons8-charging-battery-gradient-96.png
+    timeout = 0
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
+[poweralertd_battery_charging]
+    appname = "poweralertd"
+    body = "Battery charging*"
+    summary = "Power status: DELL 1VX1H98"
+    background = "#50fa7b"
+    foreground = "#282a36"
+    frame_color = "#50fa7b"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/powermanager/icons8-charging-battery-gradient-96.png
+    timeout = 5
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
+[poweralertd_battery_full]
+    appname = "poweralertd"
+    body = "Battery fully charged*"
+    summary = "Power status: DELL 1VX1H98"
+    background = "#50fa7b"
+    foreground = "#282a36"
+    frame_color = "#50fa7b"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/powermanager/icons8-charging-battery-gradient-96.png
+    timeout = 5
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
+[network_manager-connection_up]
+    appname = "NetworkManager Applet"
+    summary = "Connection Established"
+    background = "#50fa7b"
+    foreground = "#282a36"
+    frame_color = "#50fa7b"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/network/icons8-wi-fi-gradient-96.png
+    timeout = 5
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
+[network_manager-connection_down]
+    appname = "NetworkManager Applet"
+    summary = "Disconnected"
+    background = "#ff5555"
+    foreground = "#282a36"
+    frame_color = "#ff5555"
+    fullscreen = show
+    new_icon = /usr/share/icons/custom_icons/network/icons8-wi-fi-gradient-96.png
+    timeout = 0
+    urgency = critical
+    skip_display = no
+    history_ignore = yes
+
 # vim: ft=cfg
