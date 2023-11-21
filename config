@@ -86,7 +86,7 @@ smart_gaps						off
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --search-paths $HOME/.config/autostart --wait
 exec --no-startup-id dirmngr --daemon
-exec --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/keyboard-wallpaper-darker.png
+exec --no-startup-id feh --bg-fill $HOME/.i3/wallpapers/keyboard-wallpaper-darker.png
 exec --no-startup-id mpd --systemd $HOME/.config/mpd/mpd.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id poweralertd
