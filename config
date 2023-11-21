@@ -19,7 +19,7 @@ client.background       #F8F8F2
 ### I3Bar & I3Status ###
 bar {
   i3bar_command		i3bar
-  status_command	i3status
+  status_command	i3status -c $HOME/.i3/scripts/i3status.conf
   
   mode			dock
   hidden_state	show
