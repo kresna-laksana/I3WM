@@ -94,6 +94,7 @@ exec_always --no-startup-id autotiling --limit 2
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id pkill -9 emacs; emacs --daemon
+exec_always --no-startup-id pkill -9 dunst; dunst -config $HOME/.i3/scripts/dunstrc
 exec_always --no-startup-id xset b off c off dpms 300 600 900 m default s noblank s noexpose s off
 
 ### Keybindings ###
