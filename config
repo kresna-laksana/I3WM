@@ -94,6 +94,7 @@ exec_always --no-startup-id autotiling --limit 2
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id pkill -9 emacs; emacs --daemon
+exec_always --no-startup-id pkill -9 redshift; redshift -x; pkill -9 redshift; redshift -c $HOME/.i3/scripts/redshift.conf
 exec_always --no-startup-id xset b off c off dpms 300 600 900 m default s noblank s noexpose s off
 exec_always --no-startup-id pkill -9 xidlehook; xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 300 "betterlockscreen --lock dim --time-format '%I:%M %p --show-layout'" ""
 
